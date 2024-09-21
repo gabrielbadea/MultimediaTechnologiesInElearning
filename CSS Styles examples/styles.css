@@ -1,0 +1,70 @@
+body{
+    background-color:lightgray;
+}
+
+h1 {
+    color:red;
+    margin-left: 40px;
+}
+
+#para1 {
+    color: blue;
+    text-align: right;
+}
+
+.right {
+    text-align: right;
+}
+
+p.right{
+    text-align:right;
+    color: blue;
+}
+
+p.dotted {
+    border-style: dotted;
+}
+
+p.dashed {
+    border-style: dashed;
+}
+
+p.solid {
+    border-style: solid;
+}
+
+p.double {
+    border-style: double;
+}
+
+#para3 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px; 
+    margin-left: 80px;
+}
+
+#para4 {
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+}
+
+div {
+    height: 200px;
+    width: 50%;
+    background-color: yellow;
+}
+
+p.normal { 
+    font-style: normal;
+}
+
+p.italic {
+    font-style: italic;
+}
+
+p.oblique {
+    font-style: oblique;
+}
