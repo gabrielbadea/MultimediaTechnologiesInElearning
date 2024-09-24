@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    font-size: 18px;
+}
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+input[type="button"] {
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 6px #999;
+}
+
+input[type="button"]:hover {
+    background-color: #186e5b;
+}
+
+aside {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 250px;
+}
+
+body .right-side {
+    font-size: 16px;
+}
+  
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+  
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+}
+  
+.sidebar a.active {
+    background-color: blue;
+    color: white;
+}
+  
+.sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}
+  
+div.right-side {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+  
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.right-side {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.content {
+    width: 250px;
+    height: 250px;
+}
+
+.hidden {
+    display: none;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.bg-green {
+    background-color: green;
+}
+
+.bg-grey {
+    background-color: grey;
+}
+
+.bg-orange {
+    background-color: orange;
+}
+
+.bg-magenta {
+    background-color: magenta;
+}
+
+#buttons {
+    margin-top: 10px;
+}
+
+#div5 {
+    font-weight: bold;
+    font-size: 20px;
+}
