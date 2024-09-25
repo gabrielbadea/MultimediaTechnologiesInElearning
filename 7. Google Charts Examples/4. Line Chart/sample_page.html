@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Exemplu Line Chart</title>
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+
+  <!-- includere biblioteca Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    // se incarca Visualization API si pachetele necesare
+    google.charts.load('current', { packages: ['corechart', 'line'] });
+
+    // se seteaza o functie callback de executat atunci cand Google Visualization API a fost incarcat
+    google.charts.setOnLoadCallback(drawLineChart);
+
+    // functie callback care creaza si populeaza un DataTable, instantiaza un Line Chart, si il deseneaza
+    function drawLineChart() {
+      // definire date pentru grafic
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Masini');
+      data.addColumn('number', 'Trotinete Electrice');
+
+      data.addRows([
+        [0, 0, 0], [6, 11, 3], [12, 30, 22], [18, 52, 44], [24, 60, 52], [30, 55, 47],
+        [36, 62, 54], [42, 63, 55], [48, 72, 64], [54, 71, 63], [60, 64, 56], [66, 70, 62]
+      ]);
+
+      // seteaza optiuni pentru grafic
+      var options = {
+        hAxis: {
+          title: 'Timp'
+        },
+        vAxis: {
+          title: 'Popularitate'
+        },
+        colors: ['#FF0000', '#00FF00'],
+        width: 1000,
+        height: 500
+      };
+
+      // instantiaza si deseneaza grafic
+      var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
+      chart.draw(data, options);
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a class="active" href="#item1">Menu Item 1</a>
+    <a href="#item2">Menu Item 2</a>
+    <a href="#item3">Menu Item 3</a>
+    <a href="#item4">Menu Item 4</a>
+  </div>
+
+  <div class="right-side">
+    <h1>Google Charts</h1>
+    <p><b>The following is an example of a <i>line chart</i>. Select a point to see the tooltip.</b></p>
+
+    <!-- elementul care contine graficul de tip Line Chart-->
+    <div id="line_chart"></div>
+  </div>
+
+</body>
+</html>

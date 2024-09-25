@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Exemplu Column Chart</title>
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+
+  <!-- includere biblioteca Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    // se incarca Visualization API si pachetele necesare
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+
+    // se seteaza o functie callback de executat atunci cand Google Visualization API a fost incarcat
+    google.charts.setOnLoadCallback(drawColumnChart);
+
+    // functie callback care creaza si populeaza un DataTable, instantiaza un Column Chart, si il deseneaza
+    function drawColumnChart() {
+      // definire date pentru grafic
+      var data = new google.visualization.DataTable();
+      data.addColumn('timeofday', 'Ora');
+      data.addColumn('number', 'Nivel Motivational');
+      data.addRows([
+        [{ v: [8, 0, 0], f: '8 am' }, 1],
+        [{ v: [9, 0, 0], f: '9 am' }, 2],
+        [{ v: [10, 0, 0], f: '10 am' }, 3],
+        [{ v: [11, 0, 0], f: '11 am' }, 4],
+        [{ v: [12, 0, 0], f: '12 pm' }, 5],
+        [{ v: [13, 0, 0], f: '1 pm' }, 6],
+        [{ v: [14, 0, 0], f: '2 pm' }, 7],
+        [{ v: [15, 0, 0], f: '3 pm' }, 8],
+        [{ v: [16, 0, 0], f: '4 pm' }, 9],
+        [{ v: [17, 0, 0], f: '5 pm' }, 10]
+      ]);
+
+      // seteaza optiuni pentru grafic
+      var options = {
+        title: 'Nivel motivational in timpul zilei',
+        hAxis: {
+          title: 'Ora',
+          format: 'h:mm a',
+          viewWindow: {
+            min: [7, 30, 0],
+            max: [17, 30, 0]
+          }
+        },
+        vAxis: {
+          title: 'Rating (de la 1 la 10)'
+        },
+        width: 1000,
+        height: 500
+      };
+
+      // instantiaza si deseneaza grafic
+      var chart = new google.visualization.ColumnChart(document.getElementById('column_chart'));
+      chart.draw(data, options);
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a class="active" href="#item1">Menu Item 1</a>
+    <a href="#item2">Menu Item 2</a>
+    <a href="#item3">Menu Item 3</a>
+    <a href="#item4">Menu Item 4</a>
+  </div>
+
+  <div class="right-side">
+    <h1>Google Charts</h1>
+    <p><b>The following is an example of a <i>column chart</i>. Hover a column to see the tooltip.</b></p>
+
+    <!-- elementul care contine graficul de tip Column Chart -->
+    <div id="column_chart"></div>
+  </div>
+
+</body>
+</html>

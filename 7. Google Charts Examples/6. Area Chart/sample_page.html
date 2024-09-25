@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Exemplu Area Chart</title>
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+
+  <!-- includere biblioteca Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    // se incarca Visualization API si pachetele necesare
+    google.charts.load('current', { packages: ['corechart'] });
+
+    // se seteaza o functie callback de executat atunci cand Google Visualization API a fost incarcat
+    google.charts.setOnLoadCallback(drawAreaChart);
+
+    // functie callback care creaza si populeaza un DataTable, instantiaza un Area Chart, si il deseneaza
+    function drawAreaChart() {
+      // definire date grafic
+      var data = google.visualization.arrayToDataTable([
+        ['An', 'Vanzari', 'Costuri'],
+        ['2013', 1000, 400],
+        ['2014', 1170, 460],
+        ['2015', 660, 1120],
+        ['2016', 1030, 540]
+      ]);
+
+      // seteaza optiuni pentru grafic
+      var options = {
+        title: 'Performanta Companiei',
+        hAxis: { title: 'An' }
+      };
+
+      // instantiaza si deseneaza grafic
+      var chart = new google.visualization.AreaChart(document.getElementById('area_chart'));
+      chart.draw(data, options);
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a class="active" href="#item1">Menu Item 1</a>
+    <a href="#item2">Menu Item 2</a>
+    <a href="#item3">Menu Item 3</a>
+    <a href="#item4">Menu Item 4</a>
+  </div>
+
+  <div class="right-side">
+    <h1>Google Charts</h1>
+    <p><b>The following is an example of an <i>area chart</i>. Hover a point to see the tooltip.</b></p>
+
+    <!-- elementul care contine graficul de tip Area Chart -->
+    <div id="area_chart" style="height: 500px;"></div>
+  </div>
+
+</body>
+
+</html>

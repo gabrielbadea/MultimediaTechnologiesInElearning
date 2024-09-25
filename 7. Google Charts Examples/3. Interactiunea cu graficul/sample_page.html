@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Interactiunea cu graficul</title>
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+
+  <!-- includere biblioteca Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    // se incarca Visualization API si pachetele necesare
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    // se seteaza o functie callback de executat atunci cand Google Visualization API a fost incarcat
+    google.charts.setOnLoadCallback(drawChart);
+
+    // functie callback care creaza si populeaza un DataTable, instantiaza un Pie Chart, si il deseneaza
+    function drawChart() {
+
+      // definire date pentru grafic
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        ['Mushrooms', 3],
+        ['Onions', 1],
+        ['Olives', 1],
+        ['Zucchini', 1],
+        ['Pepperoni', 2]
+      ]);
+
+      // seteaza optiuni pentru grafic
+      var options = {
+        'title': 'How Much Ingredients Pizza Contains',
+        'width': 600,
+        'height': 450
+      };
+
+      // instantiaza si deseneaza grafic
+      var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+
+      // metoda care trateaza evenimentul de select din grafic
+      function selectHandler() {
+        var selectedItem = chart.getSelection()[0];            // sectiunea selectata
+        if (selectedItem) {
+          var topping = data.getValue(selectedItem.row, 0);
+          alert('Ati selectat ' + topping);
+        }
+      }
+
+      // inregistram sa se execute metoda selectHandler atunci cand evenimentul de select este declansat
+      google.visualization.events.addListener(chart, 'select', selectHandler);
+      chart.draw(data, options);
+    }
+
+  </script>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a class="active" href="#item1">Menu Item 1</a>
+    <a href="#item2">Menu Item 2</a>
+    <a href="#item3">Menu Item 3</a>
+    <a href="#item4">Menu Item 4</a>
+  </div>
+
+  <div class="right-side">
+    <h1>Google Charts</h1>
+    <p><b>The following is an example of how to interact with a chart. Click a slice to see what happens.</b></p>
+
+    <!-- elementul care contine graficul de tip Pie Chart -->
+    <div id="pie_chart" style="width:400; height:300"></div>
+  </div>
+
+</body>
+</html>

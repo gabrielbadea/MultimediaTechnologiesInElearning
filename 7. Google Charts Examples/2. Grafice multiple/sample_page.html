@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Grafice multiple</title>
+  <link href="styles.css" type="text/css" rel="stylesheet" />
+
+  <!-- includere biblioteca Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    // se incarca Visualization API si pachetele necesare
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    // deseneaza graficul de tip Pie Chart pentru Sarah's pizza atunci cand Google Visualization API a fost incarcat
+    google.charts.setOnLoadCallback(drawSarahChart);
+
+    // deseneaza graficul de tip Pie Chart pentru Anthony's pizza atunci cand Google Visualization API a fost incarcat
+    google.charts.setOnLoadCallback(drawAnthonyChart);
+
+    // functie callback care deseneaza graficul de tip Pie Chart pentru Sarah's pizza
+    function drawSarahChart() {
+
+      // definire date pentru graficul Sarah's pizza
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        ['Mushrooms', 1],
+        ['Onions', 1],
+        ['Olives', 2],
+        ['Zucchini', 2],
+        ['Pepperoni', 1]
+      ]);
+
+      // seteaza optiuni pentru graficul Sarah's pizza
+      var options = {
+        title: 'How Much Ingredients Sarah Pizza Contains',
+        width: 600,
+        height: 450
+      };
+
+      // instantiaza si deseneaza grafic pentru Sarah's pizza
+      var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
+      chart.draw(data, options);
+    }
+
+    // functie callback care deseneaza graficul de tip Pie Chart pentru Anthony's pizza
+    function drawAnthonyChart() {
+
+      // definire date pentru graficul Anthony's pizza
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        ['Mushrooms', 2],
+        ['Onions', 2],
+        ['Olives', 2],
+        ['Zucchini', 0],
+        ['Pepperoni', 3]
+      ]);
+
+      // seteaza optiuni pentru graficul Anthony's pizza
+      var options = {
+        title: 'How Much Ingredients Anthony Pizza Contains',
+        width: 600,
+        height: 450
+      };
+
+      // instantiaza si deseneaza grafic pentru Anthony's pizza.
+      var chart = new google.visualization.PieChart(document.getElementById('Anthony_chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a class="active" href="#item1">Menu Item 1</a>
+    <a href="#item2">Menu Item 2</a>
+    <a href="#item3">Menu Item 3</a>
+    <a href="#item4">Menu Item 4</a>
+  </div>
+
+  <div class="right-side">
+    <h1>Google Charts</h1>
+    <p><b>The following is an example of how to draw multiple charts.</b></p>
+
+    <!-- tabelul si elementele de tip div care contin graficele de tip Pie Chart -->
+    <table class="columns">
+      <tr>
+        <td>
+          <div id="Sarah_chart_div" style="border: 1px solid #ccc"></div>
+        </td>
+        <td>
+          <div id="Anthony_chart_div" style="border: 1px solid #ccc"></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+
+</html>
