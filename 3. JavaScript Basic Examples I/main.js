@@ -5,7 +5,6 @@
 // document.getElementById("para1").style.display = "none";
 // document.getElementById("para1").style.display = "block";
 
-// document.write("<b>test document write</b>");
 // window.alert("test alert!");
 // console.log("test console log");
 
